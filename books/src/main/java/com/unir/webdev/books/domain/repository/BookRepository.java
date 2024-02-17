@@ -24,5 +24,7 @@ public interface BookRepository {
 
     Either<String, Book> createBook(Book book);
 
+    void deleteBook(UUID bookID);
+
     boolean areAvailable(UUID book);
 }

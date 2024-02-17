@@ -39,26 +39,24 @@ Los microservicios `requests` y `books` son los dos microservicios del proyecto,
 
 Para iniciar los servicios con la base de datos Postgres, sigue estos pasos:
 
-1. Navega a la carpeta del microservicio correspondiente utilizando el comando `cd`. Por ejemplo, para el servicio de libros:
+1. Navega a la carpeta del microservicio correspondiente utilizando el comando `cd`. Por ejemplo, para el servicio de libros y ``` cd books ``` ``` cd requests ```
 
-``` cd books ```
-
-2. Dentro de la carpeta del microservicio, ejecuta el siguiente comando para iniciar los servicios con Docker Compose:
+2. Dentro de la carpeta de los microservicio, ejecuta el siguiente comando para iniciar los servicios con Docker Compose:
 ``` docker compose --profile db up -d ```
-
-
+3. Luego se puede iniciar cada microservicio ``` mvn spring-boot:run -Dspring-boot.run.profiles=postgres ```
 Estos comandos aseguran que los microservicios se inicien correctamente y establezcan la conexión con la base de datos Postgres.
 
 ## Hitos Clave
 
 ### Funcionalidades del Servicio de Libros (Puerto 8082)
 
-- **Libros Filtrados**: Filtrar libros por autor y nombre. (`GET /api/v1/books/filterBy`)
-- **Todos los Libros**: Listar todos los libros disponibles. (`GET /api/v1/books/all`)
+- **Libros Filtrados**: Filtrar libros por autor y nombre. (`GET /api/v1/books/`)
+- **Todos los Libros**: Listar todos los libros disponibles. (`GET /api/v1/books/`)
 - **Verificar Carrito de Compras**: Verificar los libros en el carrito de compras. (`POST /api/v1/books/verify`)
 - **Compra**: Realizar una solicitud de compra de libros. (`POST /api/v1/books/request`)
 - **Cambiar Disponibilidad de Libros**: Cambiar la disponibilidad de los
   libros. (`POST /api/v1/books/changeAvailability`)
+- Entre otros
 - Documentación API: Disponible a través de OpenAPI en `http://127.0.0.1:8082/v3/api-docs`.
 
 ### Funcionalidades del Servicio de Solicitudes (Puerto 8081)
@@ -67,7 +65,7 @@ Estos comandos aseguran que los microservicios se inicien correctamente y establ
 - **HealthCheck de Solicitudes**: Verificar el estado del servicio de solicitudes.
 - **Crear Petición de Libros**: Enviar una nueva petición de libros.
 - **Eliminar Solicitud de Libros**: Eliminar una solicitud de libros
-  existente. (`DELETE /api/v1/requests?requestUUID={uuid}`)
+  existente. (`DELETE /api/v1/requests/{uuid}`)
 - Documentación API: Disponible a través de OpenAPI en `http://127.0.0.1:8081/v3/api-docs`.
 
 ## Documentación API con Swagger
@@ -81,7 +79,7 @@ La documentación de la API para ambos servicios está disponible a través de S
 
 1. Clonar el repositorio desde GitHub.
 2. Asegurarse de tener Maven y Java instalados.
-3. Ejecutar cada microservicio usando Maven, por ejemplo: `mvn spring-boot:run` en cada directorio de microservicio.
+3. Ejecutar cada microservicio usando Maven, por ejemplo: `mvn spring-boot:run` en cada directorio de microservicio con el profile activo **postgres**.
 4. Acceder a la interfaz de Swagger para interactuar con la API.
 
 ## Detalles
@@ -89,7 +87,9 @@ La documentación de la API para ambos servicios está disponible a través de S
 ### Modelo
 
 ![Diagrama](./docs/database-model.png)
-
+## Video
+El link del video se encuentra en el archivo video.txt
+o en el siguiente link [Link video](https://alumnosunir-my.sharepoint.com/:v:/g/personal/kevinsantiago_rey569_comunidadunir_net/ESldg8Gs6mlCu872U-JB1iABTA2DB-cGdxz8XzacWVEH0Q?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=eh10bB)
 ## Contribuciones
 
 Las contribuciones al proyecto son bienvenidas despues de la entrega ya que es necesario que para la calificacion

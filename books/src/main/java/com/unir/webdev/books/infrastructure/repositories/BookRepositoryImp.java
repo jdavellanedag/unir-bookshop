@@ -84,6 +84,11 @@ public class BookRepositoryImp implements BookRepository {
                   .toEither("Error to save at DB");
     }
 
+    @Override
+    public void deleteBook(UUID book) {
+        bookRepositoryJPA.deleteById(book);
+    }
+
 
     @Override
     public boolean areAvailable(UUID bookID) {
