@@ -265,4 +265,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Data
+
+*/postgres_data/
+
 # End of https://www.toptal.com/developers/gitignore/api/intellij,intellij+all,macos,maven,linux,windows
